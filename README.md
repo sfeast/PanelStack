@@ -19,7 +19,7 @@ How to Use
 Include the PanelStack package which will include the necessary libs:
 
 	enyo.depends(
-		"../../package.js", <- path to PanelStack package.js
+		"path/to/PanelStack/package.js",
 		<your files go here>
 	);
 
@@ -36,7 +36,7 @@ Now use this.$.panelStack to push and pop UIComponents like so:
 
 this.$.panelStack.push(new View({}));
 
-OR
+AND
 
 this.$.panelStack.pop();
 		
@@ -44,11 +44,6 @@ Additionally you can use this.panelStack directly from any of the pushed compone
 		
 Note that the example uses Onyx, but it isn't required for use of PanelStack.
 
-
-Properties
-----------
-
-- arranger -> String: This is the panel arranger that provides the transition type between panels.
 
 Methods
 -------
