@@ -39,9 +39,7 @@ this.$.panelStack.push(new View({}));
 AND
 
 this.$.panelStack.pop();
-		
-Additionally you can use this.panelStack directly from any of the pushed components to transition in/out new compents. PanelStack adds a reference to itself to any component that it receives in a push call. The pushed component may then push new components in/out or pop itself out.
-		
+				
 Note that the example uses Onyx, but it isn't required for use of PanelStack.
 
 

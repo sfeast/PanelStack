@@ -1,7 +1,8 @@
 enyo.kind({
 	name: "View",
 	published: {
-		number: 0  //current view number
+		panelStack: "", //reference to the containing PanelStack
+		number: ""  //current view number
 	},
 	components: [
 	{kind: "FittableRows", classes: "enyo-fit", components: [
@@ -13,7 +14,8 @@ enyo.kind({
 				{content: "Transitions"},
 				{kind: "onyx.Menu", components: [
 					{name: "CardArranger", content: "CardArranger", ontap:"setTransition"},
-					{name: "CardSlideInArranger", content: "CardSlideInArranger", ontap:"setTransition"}
+					{name: "CardSlideInArranger", content: "CardSlideInArranger", ontap:"setTransition"},
+					{name: "CardSlideInOutArranger", content: "CardSlideInOutArranger", ontap:"setTransition"}
 				]}
 			]}
 		]},
@@ -25,8 +27,9 @@ enyo.kind({
 		this.$.viewNumber.setContent(this.number);
 	},
 	pushPanel: function(){
-		var nextView = new View({}); //create a new component
-		nextView.setNumber(this.number+1); //update the component before pushing it onto the stack
+		var nextView = new View({}); //create a new component & update it's properties before pushing it onto the stack
+		nextView.setNumber(this.number+1);
+		nextView.setPanelStack(this.panelStack);
 		this.panelStack.push(nextView);
 	},
 	popPanel: function(){

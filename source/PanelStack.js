@@ -11,7 +11,7 @@ enyo.kind({
 		//pulled from Panels.js
 		this.flow();
 		this.reflow();
-		this.setIndex(this.index);
+		this.setIndex(this.index); //important change - set index to this.index rather than 0
 	}
 });
 
@@ -36,9 +36,7 @@ enyo.kind({
 		component.owner = pl;
 		pl.addControl(component);
 
-		/*give the new component/panel a reference to this PanelStack so it can push/pop panels as well*/
-		component.panelStack = this;
-	
+		//render the control & update the panels
 		component.render();
 		pl.reflow();
 		pl.setIndex(i);
